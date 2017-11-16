@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<%- include partials/_header %>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title">#sign-up</h3>
+        <div class="box">
+          <figure class="avatar">
+            <img src="" />
+          </figure>
+          <form id="signup" method="POST" action="/sign-up" enctype="application/json">
+
+            <div class="field">
+              <label class="label has-text-left">Username</label>
+              <div class="control">
+                <input name="username" class="input is-large" type="text" placeholder="Username" autofocus="" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label has-text-left">Last name</label>
+              <div class="control">
+                <input name="lastname" class="input is-large" type="text" placeholder="Last name" autofocus="" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label has-text-left">First name</label>
+              <div class="control">
+                <input name="firstname" class="input is-large" type="text" placeholder="First name" autofocus="" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label has-text-left">Email</label>
+              <div class="control">
+                <input name="email" class="input is-large" type="text" placeholder="your@email.com" autofocus="" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label has-text-left">Birthdate</label>
+              <div class="control">
+                <input name="birthdate" class="input is-large" type="text" placeholder="birthdate" autofocus="" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label has-text-left">Password</label>
+              <div class="control">
+                <input name="password" class="input is-large" type="text" placeholder="Password" autofocus="" />
+              </div>
+            </div>
+
+          </div>
+
+          <a class="button is-block is-info is-large is-success" onclick="document.getElementById('signup').submit();" >
+            Sign up
+          </a>
+          
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <%- include partials/_footer %>

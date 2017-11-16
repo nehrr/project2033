@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    Index.
-  </body>
-</html>
+
+<%- include partials/_header %>
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="column is-4 is-offset-4">
+          <h3 class="title">#sign-in</h3>
+
+          <div class="box">
+
+            <figure class="avatar">
+              <img src="" />
+            </figure>
+
+            <form id="signin" method="POST" action="/user" enctype="application/json">
+
+              <div class="field">
+                <label class="label has-text-left">Username</label>
+                <div class="control">
+                  <input name="username" class="input is-large" type="text" placeholder="Username" autofocus="" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label has-text-left">Password</label>
+                <div class="control">
+                  <input name="password" class="input is-large" type="text" placeholder="Password" autofocus="" />
+                </div>
+              </div>
+
+            </div>
+
+            <a class="button is-block is-info is-large is-success" onclick="document.getElementById('signin').submit();" >
+              Sign In
+            </a>
+
+          </form>
+
+          <a class="button is-block is-info is-large is-success" href="/sign-up">Or sign up</a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <%- include partials/_footer %>
