@@ -10,8 +10,9 @@ const app = express();
 
 //Routes
 /*
-GET /sign-in
+GET /
 
+GET /sign-in
 POST /sign-in
 GET /sign-up
 POST /sign-up
