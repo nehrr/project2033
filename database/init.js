@@ -2,11 +2,13 @@ const Sequelize = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 
+const config = require(path.join(__dirname, 'config.json'));
+
 let db = {};
 
-db.sequelize = new Sequelize('2033', 'ernoul', '', {
-  host: 'localhost',
-  dialect: 'postgres',
+db.sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
+  dialect: config.dialect,
 });
 
 let modelPathname = path.join(__dirname, 'models');

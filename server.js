@@ -31,6 +31,7 @@ POST /sign-up
 
 */
 const index = require('./routes/index');
+const user = require('./routes/users')
 
 //Set the view engine
 app.set('view engine', 'ejs');
