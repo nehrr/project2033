@@ -1,6 +1,7 @@
 
 .hero{
   background: #37B2FC!important;
+
 }
 html{
     background: #37B2FC!important;
@@ -70,4 +71,8 @@ h1{
   }
   .update-button{
     width: 31%;
+  }
+  .info{
+    position: absolute;
+    left: 28%;
   }
