@@ -54,8 +54,8 @@ router.post('/sign-in', (req, res) => {
       if (!req.session.user) {
         req.session.user = {};
       }
-      req.session.user = session;
 
+      req.session.user = session;
       res.redirect('/home');
     } else {
 

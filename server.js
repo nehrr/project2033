@@ -44,6 +44,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //Routes
 app.use('/', index);
+app.use('/user', user);
 
 // 404
 app.use((req, res, next) => {
