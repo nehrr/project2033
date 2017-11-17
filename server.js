@@ -61,6 +61,21 @@ app.use((req, res, next) => {
 db.sequelize.sync().then(() => {
   console.log(`Database config successful`);
 
+  if (db.module.count()
+  .then(modulesNb => {
+    if (modulesNb == 0) {
+      const moduleJSON = require(path.join(__dirname, 'database', 'modules.json'));
+
+      moduleJSON.modules.forEach(mod => {
+        db.module.create(mod)
+        .then(module => {
+          console.log(`Module ${module.name} added successfully`);
+        })
+      })
+    }
+
+  }))
+
   app.listen(port, (err) => {
     if (err) throw err;
     console.log(`Server is running on ${port}`)
