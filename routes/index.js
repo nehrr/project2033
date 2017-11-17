@@ -31,12 +31,15 @@ router.post('/sign-in', (req, res) => {
   };
 
   db.user.findOne({where: {username: user.username}})
-  .then(user => {
-    if (!user) {
+  .then(userDB => {
+    if (!userDB) {
+      console.log('No user');
       res.redirect('/sign-in');
-    } else if (user.checkPassword(user.password)) {
+    } else if (userDB.checkPassword(user.password)) {
+      console.log('Good pw');
       res.redirect('/');
     } else {
+      console.log('Bad pw');
       res.redirect('/sign-in');
     }
   })
@@ -47,6 +50,7 @@ router.get('/sign-up', (req, res) => {
 });
 
 router.post('/add-user', (req, res) => {
+  console.log(req.body);
 
   let user =  {
     username: req.body.username,
