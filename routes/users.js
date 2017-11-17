@@ -20,4 +20,8 @@ router.get('/profil', (req, res) => {
   res.render('profil', {user: req.session.user})
 });
 
+router.get('/module', (req, res) => {
+  res.render('module', {module: null})
+})
+
 module.exports = router;
