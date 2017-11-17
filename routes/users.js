@@ -4,6 +4,7 @@ const session = require('express-session');
 const fs = require('fs');
 const path = require('path');
 const request = require('request');
+const moment = require('moment');
 
 const ejsLayout = require('express-ejs-layouts');
 const db = require('../database/init');
@@ -24,25 +25,15 @@ router.get('/home', (req, res) => {
 });
 
 router.get('/profil', (req, res) => {
-  res.render('profil', {user: req.session.user, layout : 'layouts/_user'})
+  res.render('profil', {user: req.session.user, layout : 'layouts/_user', moment: moment})
 });
 
 router.get('/module', (req, res) => {
-  // db.module.findAll()
-  // .return()
-  // .then( modulesDB => {
-  //   let allModules = [];
-  //   modulesDB.forEach( moduleDB => {
-  //     allModules.push({
-  //       id: moduleDB.id,
-  //       name: moduleDB.name,
-  //       teacher: moduleDB.teacher
-  //     })
-  //   })
-  //   console.log(allModules);
-  //   res.render('module', {modules: allModules})
-  let modules = db.module.findAll();
-  console.log(modules);
+  let modules = db.module.findAll()
+  .then(modules => {
+    res.render('module', {modules});
+  });
+
 
   });
 
