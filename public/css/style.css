@@ -1,0 +1,73 @@
+
+.hero{
+  background: #37B2FC!important;
+}
+html{
+    background: #37B2FC!important;
+}
+.button.is-success{
+  background: #226F9D;
+  border: 2px solid #226F9D;
+}
+.button.is-success:hover{
+  background: #226F9D;
+}
+.box{
+  margin-left: -9%;
+}
+.menu{
+  float: left;
+  width: 26%;
+  background: #37B2FC!important;
+
+}
+.menu img{
+  margin-left: 22%;
+}
+.menu .button{
+  width: 82%!important;
+  margin-left: 5%!important;
+  margin-top: 4%;
+}
+a.logout{
+  background: #000!important;
+}
+a.logout:hover{
+  background: #000!important;
+}
+h1{
+  font-size: 69px;
+  text-align: left;
+  font-weight: 800;
+}
+.profil h3{  text-align: left;
+    margin-top: 7%;
+  }
+  .subtitle{
+    margin-top: 15%!important;
+    margin-right: 31%;
+  }
+  .profil h3{
+        margin-right: 61%!important;
+  }
+  a.edit{
+    float:left!important
+  }
+  .edit-profil{
+    float: left;
+    margin-top: 6%;
+  }
+  .button-delete{
+    margin-left: 10%;
+    background: red!important;
+    margin-top: 6%;
+  }
+  .container p{
+    text-align: left;
+  }
+  .update input{
+    width: 53%;
+  }
+  .update-button{
+    width: 31%;
+  }
