@@ -5,6 +5,27 @@
     <title></title>
   </head>
   <body>
+  <% modules ? modules : '' %>
+  <% if (modules) { modules.forEach((aModule) => { %>
 
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="" />
+            </figure>
+          </div>
+          <div class="media-content has-text-black">
+            <p class="title is-4 has-text-black"><%= aModule.name %></p>
+            <p class="subtitle is-6 has-text-black"><%= aModule.teacher %></p>
+          </div>
+          <a class="button" href='#'>Update</a>&nbsp;
+          <a class="button is-danger" onclick="">Delete</a>
+        </div>
+      </div>
+    </div>
+    <br />
+  <% })}; %>
   </body>
 </html>
