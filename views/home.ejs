@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>2033</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" />
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-  </head>
-  <body>
+  <%- include partials/_header %>
     <div class="menu">
     <img src="css/img/logo.png" alt="logo" width="55%">
     <a class="button is-block is-info is-large is-success"  href="/home" style="width:30%; ">
@@ -36,12 +29,7 @@
             Hello, username
           </h3>
           <h4 class="subtitle is-4">Let's have fun with Express.js for fun and profit.</h4>
-          <a href="/create">Create</a> ·
-          <a href="/list">List</a> ·
-          <a href="/update">Update</a> ·
-          <a href="/delete">Delete</a> ·
         </div>
       </div>
-    </section>
-  </body>
-</html>
+
+<%- include partials/_footer %>
