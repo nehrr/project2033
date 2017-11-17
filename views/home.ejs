@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+
   <%- include partials/_header %>
+
     <div class="menu">
     <img src="css/img/logo.png" alt="logo" width="55%">
     <a class="button is-block is-info is-large is-success"  href="/home" style="width:30%; ">
@@ -19,16 +20,21 @@
       Logout
     </a>
 </div>
+
     <section class="hero is-fullheight is-info">
       <div class="hero-body profil">
         <div class="container has-text-centered">
+
           <h1>
             HOME
           </h1>
+
           <h3 class="title is-2">
-            Hello, username
+            Hello, <%= user.firstname %>
           </h3>
+
           <h4 class="subtitle is-4">Let's have fun with Express.js for fun and profit.</h4>
+
         </div>
       </div>
 

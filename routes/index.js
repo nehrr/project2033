@@ -23,6 +23,11 @@ router.get('/sign-in', (req, res) => {
   res.render('sign-in');
 });
 
+router.get('/home', (req, res) => {
+  console.log(req.session.user);
+  res.render('home', {user: req.session.user});
+})
+
 router.post('/sign-in', (req, res) => {
   let user =  {
     username: req.body.username,
@@ -38,6 +43,7 @@ router.post('/sign-in', (req, res) => {
     } else if (userDB.checkPassword(user.password)) {
 
       let session = {
+        id: userDB.id,
         username: userDB.username,
         firstname: userDB.firstname,
         lastname: userDB.lastname,
@@ -46,11 +52,11 @@ router.post('/sign-in', (req, res) => {
       }
 
       if (!req.session.user) {
-        req.session.user = [];
+        req.session.user = {};
       }
-      req.session.user.push(session);
+      req.session.user = session;
 
-      res.redirect('/');
+      res.redirect('/home');
     } else {
 
       res.redirect('/sign-in');
