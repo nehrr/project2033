@@ -29,17 +29,20 @@ router.get('/sign-up', (req, res) => {
 })
 
 router.post('/add-user', (req, res) => {
-  console.log(req.body);
 
-  db.user.create({
+  let user =  {
     username: req.body.username,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     birthdate: req.body.birthdate,
     email: req.body.email,
     password: req.body.password,
-  })
-  .then(() => {
+    password_confirmation: req.body.password_confirmation,
+  };
+
+  db.user.create(user)
+  .then(user => {
+
     if (!req.session.users) {
       req.session.users = [];
     }
@@ -48,6 +51,10 @@ router.post('/add-user', (req, res) => {
     console.log(req.session.users);
 
     res.redirect('/');
+  })
+  .catch(err => {
+    throw err;
+    res.redirect('/sign-in');
   });
 
 });
