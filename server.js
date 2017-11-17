@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const ejsLayout = require('express-ejs-layouts');
 
 const db = require('./database/init');
 
@@ -36,6 +37,9 @@ const user = require('./routes/users')
 //Set the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(ejsLayout);
+app.set('layout', 'layouts/_main');
 
 //Middlewares
 app.use(express.static(path.join(__dirname, 'public')));

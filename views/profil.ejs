@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <%- include partials/_header %>
 
     <div class="menu">
-    <img src="css/img/logo.png" alt="logo" width="55%">
+    <img src="img/logo.png" alt="logo" width="55%">
     <a class="button is-block is-info is-large is-success"  href="/home" style="width:30%; ">
       Home
     </a>
@@ -29,8 +30,8 @@
           <h3 class="title is-2">
             Information
           </h3>
-          <p>My name is lastname firstname, my username is usernamevand my e-mail is email. <br/>
-            I was born on date.</p>
+          <p>My name is <%= user.lastname %> <%= user.firstname %>, my username is <%= user.username %>and my e-mail is <%= user.email %>. <br/>
+            I was born on <%= user.birthdate %>.</p>
             <a class="button is-block is-info is-large is-success edit-profil"  href="/edit" style="width:30%; ">
               Edit
             </a>
