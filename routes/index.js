@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const session = require('express-session');
+
 const db = require('../database/init');
 // const bodyParser = require('body-parser');
 //
@@ -52,6 +53,7 @@ router.post('/sign-in', (req, res) => {
 
       req.session.user = session;
       res.redirect('/user/home');
+
     } else {
 
       res.redirect('/sign-in');
