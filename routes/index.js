@@ -18,15 +18,33 @@ router.use(session({
 
 router.get('/', (req, res) => {
   res.render('index');
-})
+});
 
 router.get('/sign-in', (req, res) => {
   res.render('sign-in');
+});
+
+router.post('/sign-in', (req, res) => {
+  let user =  {
+    username: req.body.username,
+    password: req.body.password,
+  };
+
+  db.user.findOne({where: {username: user.username}})
+  .then(user => {
+    if (!user) {
+      res.redirect('/sign-in');
+    } else if (user.checkPassword(user.password)) {
+      res.redirect('/');
+    } else {
+      res.redirect('/sign-in');
+    }
+  })
 })
 
 router.get('/sign-up', (req, res) => {
   res.render('sign-up');
-})
+});
 
 router.post('/add-user', (req, res) => {
 
@@ -40,14 +58,23 @@ router.post('/add-user', (req, res) => {
     password_confirmation: req.body.password_confirmation,
   };
 
+  let session = {
+    username: req.body.username,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    birthdate: req.body.birthdate,
+    email: req.body.email,
+  }
+
   db.user.create(user)
   .then(user => {
 
     if (!req.session.users) {
       req.session.users = [];
     }
-    req.body.id = idUser++;
-    req.session.users.push(req.body);
+    session.id = idUser++;
+    req.session.users.push(session);
+
     console.log(req.session.users);
 
     res.redirect('/');
