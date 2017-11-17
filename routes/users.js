@@ -11,6 +11,11 @@ router.use(session({
   saveUninitialized: true,
 }));
 
+router.get('/home', (req, res) => {
+  console.log(req.session.user);
+  res.render('home', {user: req.session.user});
+});
+
 router.get('/profil', (req, res) => {
   res.render('profil', {user: req.session.user})
 });
