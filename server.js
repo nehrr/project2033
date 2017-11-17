@@ -41,8 +41,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(ejsLayout);
 app.set('layout', 'layouts/_main');
 
+
 //Middlewares
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
