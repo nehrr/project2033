@@ -8,8 +8,6 @@ const db = require('../database/init');
 // router.use(bodyParser.urlencoded({extended: true}));
 
 //Session
-let idUser = 0;
-
 router.use(session({
   secret: '2033',
   resave: false,
@@ -17,6 +15,7 @@ router.use(session({
 }));
 
 router.get('/', (req, res) => {
+  console.log(req.session.user);
   res.render('index');
 });
 
@@ -31,12 +30,29 @@ router.post('/sign-in', (req, res) => {
   };
 
   db.user.findOne({where: {username: user.username}})
-  .then(user => {
-    if (!user) {
+  .then(userDB => {
+    if (!userDB) {
+
       res.redirect('/sign-in');
-    } else if (user.checkPassword(user.password)) {
+
+    } else if (userDB.checkPassword(user.password)) {
+
+      let session = {
+        username: userDB.username,
+        firstname: userDB.firstname,
+        lastname: userDB.lastname,
+        birthdate: userDB.birthdate,
+        email: userDB.email,
+      }
+
+      if (!req.session.user) {
+        req.session.user = [];
+      }
+      req.session.user.push(session);
+
       res.redirect('/');
     } else {
+
       res.redirect('/sign-in');
     }
   })
@@ -47,6 +63,7 @@ router.get('/sign-up', (req, res) => {
 });
 
 router.post('/add-user', (req, res) => {
+  console.log(req.body);
 
   let user =  {
     username: req.body.username,
@@ -58,25 +75,8 @@ router.post('/add-user', (req, res) => {
     password_confirmation: req.body.password_confirmation,
   };
 
-  let session = {
-    username: req.body.username,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    birthdate: req.body.birthdate,
-    email: req.body.email,
-  }
-
   db.user.create(user)
   .then(user => {
-
-    if (!req.session.users) {
-      req.session.users = [];
-    }
-    session.id = idUser++;
-    req.session.users.push(session);
-
-    console.log(req.session.users);
-
     res.redirect('/');
   })
   .catch(err => {
