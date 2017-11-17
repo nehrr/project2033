@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-  let modules = sequelize.define('module', {
+  let module = sequelize.define('module', {
     name: {
       type: DataTypes.STRING,
       unique: true
@@ -8,5 +8,5 @@ module.exports = (sequelize, DataTypes) => {
     teacher: DataTypes.STRING,
   });
 
-  return modules;
+  return module;
 };
