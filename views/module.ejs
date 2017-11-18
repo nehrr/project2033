@@ -1,31 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-  <% modules ? modules : '' %>
-  <% if (modules) { modules.forEach((aModule) => { %>
+<section class="hero is-fullheight is-info info">
+  <div class="hero-body profil">
+    <div class="container has-text-centered">
 
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img src="" />
-            </figure>
-          </div>
-          <div class="media-content has-text-black">
-            <p class="title is-4 has-text-black"><%= aModule.name %></p>
-            <p class="subtitle is-6 has-text-black"><%= aModule.teacher %></p>
-          </div>
-          <a class="button" href='#'>Update</a>&nbsp;
-          <a class="button is-danger" onclick="">Delete</a>
-        </div>
-      </div>
+      <table class="table is-striped is-bordered is-hoverable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Teacher</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <% modules ? modules : '' %>
+        <% if (modules) { modules.forEach((aModule) => { %>
+
+          <tbody>
+            <tr>
+              <td><%= aModule.name %></td>
+              <td><%= aModule.teacher %></td>
+              <td>
+                <p class="field">
+                  <a class="icon has-text-success">
+                      <i class="fa fa-check-square"></i>
+                  </a>
+                  <a class="icon has-text-danger">
+                      <i class="fa fa-ban"></i>
+                  </a>
+                  </p>
+              </td>
+            </tr>
+
+          <% })}; %>
+
+        </tbody>
+      </table>
+
     </div>
-    <br />
-  <% })}; %>
-  </body>
-</html>
+  </div>
+  

@@ -55,7 +55,8 @@ app.use('/user', user);
 app.use((req, res, next) => {
   let err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  //next(err);
+  res.render('404');
 });
 
 db.sequelize.sync().then(() => {

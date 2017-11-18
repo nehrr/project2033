@@ -1,23 +1,26 @@
+<section class="hero is-fullheight is-info info">
 
-    <section class="hero is-fullheight is-info info">
+  <div class="hero-body profil">
+    <div class="container has-text-centered profil">
 
-      <div class="hero-body profil">
-        <div class="container has-text-centered profil">
-          <h1>
-            Profil
-          </h1>
-          <h3 class="title is-2">
-            Information
-          </h3>
-          <p>My name is <%= user.lastname %> <%= user.firstname %>, my username is <%= user.username %> and my e-mail is <%= user.email %>. <br/>
-            I was born on <%= moment(user.birthdate).format('MMMM Do YYYY') %>.</p>
-            <a class="button is-block is-info is-large is-success edit-profil"  href="/edit" style="width:30%; ">
-              Edit
-            </a>
-            <a class="button edit button-delete is-block is-info is-large is-success"  href="/delete" style="width:30%;">
-              Delete
-            </a>
+      <h1>
+        Profile
+      </h1>
 
-        </div>
+      <h3 class="title is-2">
+        Information
+      </h3>
+
+      <p>My name is <%= user.lastname %> <%= user.firstname %>, my username is <%= user.username %> and my e-mail is <%= user.email %>. <br/>
+        I was born on <%= moment(user.birthdate).format('dddd MMMM Do YYYY') %>.</p>
+
+        <a class="button is-block is-info is-large is-success edit-profil"  href="/user/edit" style="width:30%; ">
+          Edit
+        </a>
+
+        <a class="button edit button-delete is-block is-info is-large is-success"  href="/user/delete" style="width:30%;">
+          Delete
+        </a>
+
       </div>
-    </section>
+    </div>
