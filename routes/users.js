@@ -20,7 +20,7 @@ router.get('/home', (req, res) => {
   let url = 'http://quotes.stormconsultancy.co.uk/random.json';
 
   request(url, (error, response, body) => {
-    res.render('home', {user: req.session.user, layout: 'layouts/_user', message: JSON.parse(body)});
+    res.render('home', {user: req.session.user, moment: moment, layout: 'layouts/_user', message: JSON.parse(body)});
   })
 });
 
